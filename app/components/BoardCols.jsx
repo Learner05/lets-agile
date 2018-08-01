@@ -6,45 +6,44 @@ import Ticket from './ticket.jsx';
 class BoardCol extends React.Component {
 
     constructor(props){
-        super(props)
-        this.state = {
-          BoardCol : [{
-            colName : ""
+      super(props);
+      this.state = {
+        newTicket : [{
+            colName : "start",
             tickets : [{
-              name : "",
-              noOfLikes : 0,
-              createdBy : "",
-              liked : false,
-              isEditable : true
+              name : "prankul"
             }]
-          }]
-        }
+        }]
+      }
 
-        this.handleaddTicket = this.handleaddTicket.bind(this);
+      this.addTicket = this.addTicket.bind(this);
     }
 
-    handleaddTicket() {
-
+    addTicket() {
+      this.props.onAddTicket(this.state.newTicket)
     }
 
 
     render(){
-
-        this.state.tickets.forEach(function(ticket, idx){
-
-
-
-        })
-
+      /*  var rows=[];
+        this.props.BoardCol.tickets.forEach(function(ticket, idx){
+          rows.push(<Ticket />)
+        })*/
+        var rows = [];
+        this.props.tickets.forEach(function(ticket, idx){
+          rows.push(<Ticket key={idx} name={ticket.name} />)
+        });
 
         return(
             <div className={this.props.colNum}>
+              {console.log(this.props.onAddTicket)}
               <div className="headr">
                <span>{this.props.name}</span>
-               <i className="fa fa-plus-square-o addicon" onClick={this.handleaddTicket}></i>
+               <i className="fa fa-plus-square-o addicon"
+                 onClick={this.addTicket} ></i>
               </div>
               <div className="phse">
-                <Ticket />
+                  {rows}
               </div>
             </div>
         )

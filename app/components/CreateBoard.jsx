@@ -48,9 +48,9 @@ class CreateBoard extends React.Component {
       boardTypes.forEach(function(board, idx) {
 
         if (idx% 2 === 0){
-          even.push(<BoardDef name = {board.name} desc = {board.desc} img = {board.img} />)
+          even.push(<BoardDef key={idx} name = {board.name} desc = {board.desc} img = {board.img} />)
         } else {
-          odd.push(<BoardDef name = {board.name} desc = {board.desc} img = {board.img} />)
+          odd.push(<BoardDef  key={idx} name = {board.name} desc = {board.desc} img = {board.img} />)
         }
       });
 
@@ -64,7 +64,7 @@ class CreateBoard extends React.Component {
                   </div>
                 </div>
                 <div className = "col-xs-12 col-sm-6">
-                  <div onClick="">
+                  <div onClick={this.createBoardHandle}>
                     {odd}
                   </div>
                 </div>

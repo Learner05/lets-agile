@@ -13,12 +13,12 @@ const Ticket = (props) => {
       </div>
       <div className="row">
         <div className="col-12">
-            <textarea style={{"width": "100%"}}></textarea>
+            <textarea style={{"width": "100%"}}>{props.name}</textarea>
         </div>
       </div>
       <div className="row">
         <div className="offset-sm-7 offset-lg-9 col-12 col-sm-5 col-lg-3">
-            <div className="divbtn" onClick={this.handle}>SAVE</div>
+            <div className="divbtn">SAVE</div>
         </div>
       </div>
     </div>
