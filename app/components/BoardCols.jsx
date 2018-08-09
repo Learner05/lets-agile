@@ -9,10 +9,10 @@ class BoardCol extends React.Component {
       super(props);
       this.state = {
         newTicket : [{
-            colName : "start",
-            tickets : [{
+            colName : "",
+            tickets : {
               name : "prankul"
-            }]
+            }
         }]
       }
 
@@ -20,7 +20,8 @@ class BoardCol extends React.Component {
     }
 
     addTicket() {
-      this.props.onAddTicket(this.state.newTicket)
+      console.log("value of column:" + this.props.name);
+      this.props.onAddTicket(this.props.name)
     }
 
 

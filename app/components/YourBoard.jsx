@@ -40,17 +40,20 @@ class yourBoard extends React.Component {
 
       let Board = [];
       let tempState = [];
+      let tckt = {
+        name: "PK"
+      }
 
-          colDetails.forEach((newTicket, i) => {
+          //colDetails.forEach((newTicket, i) => {
 
             this.state.BoardCol.forEach((Ticket, j)=> {
 
-              console.log("value of newTicket :" + newTicket.colName);
+              //console.log("value of newTicket1 :" + JSON.stringify(newTicket.tickets));
                 console.log("value of old :" + Ticket.colName);
                 console.log("value of old :" + Ticket.tickets.length);
 
-                if(newTicket.colName === Ticket.colName ){
-                  Ticket.tickets.push(newTicket.tickets)
+                if(colDetails === Ticket.colName ){
+                  Ticket.tickets.push(tckt)
                 }
 
                 console.log("value of old :" + Ticket.tickets.length);
@@ -58,7 +61,7 @@ class yourBoard extends React.Component {
                 tempState.push(Ticket);
             })
 
-    })
+  //  })
 
      this.setState({BoardCol: tempState});
 }
